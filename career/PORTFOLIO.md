@@ -1,0 +1,108 @@
+# Adesola Kareem — Career Portfolio & Application Tracker
+
+**Email:** kareemadesola1999@gmail.com | **Phone:** +2349070708811  
+**LinkedIn:** linkedin.com/in/adesola-kareem-686541181 | **GitHub:** github.com/kareemadesola  
+**Location:** Lagos, Nigeria (fully remote)
+
+---
+
+## GitHub Projects
+
+### Scalable Notification Service *(May 2026 – Present)*
+`FastAPI · RabbitMQ · Redis · PostgreSQL · Docker · Prometheus · Grafana`  
+Production-grade multi-channel notification system. Handles email, SMS, push, and in-app WebSocket delivery with independent channel scaling, exponential backoff retry, dead-letter queues, JWT auth with refresh tokens, Redis rate limiting, and full Prometheus + Grafana observability.  
+Designed for ~17K notifications/sec with horizontal scaling strategy.  
+→ github.com/kareemadesola/scalable-notification-service
+
+### AI Investigation & Research Assistant *(April 2026)*
+`Python · FAISS · RAG · LangChain-style agentic pipeline`  
+Agentic RAG system that combines vector search, multi-step reasoning, and a structured evaluation layer for hallucination detection. Demonstrates retrieval → reasoning → synthesis → evaluation pipeline.  
+→ github.com/kareemadesola/ai-investigation-assistant
+
+### System Design Masterclass *(March 2026)*
+Active study of distributed systems design patterns (Udemy course), documented as working notes.  
+→ github.com/kareemadesola/system-design-masterclass
+
+---
+
+## Work Experience
+
+### WebMD — Software Engineer (Backend) *(Mar 2025 – Present)*
+`Python · FastAPI · Pydantic · RabbitMQ · pgvector · Solr · Redis · Docker · GCP`
+- Designed and built scalable Python/FastAPI REST APIs with Pydantic data models and JSON Schema contracts for high-throughput content ingestion
+- Fixed vector re-indexing inconsistencies with atomic updates, improving retrieval accuracy
+- Implemented multi-provider LLM + embedding routing (OpenAI, Azure, Anthropic, Vertex, Cohere)
+- Designed model-aware embedding pipeline with batching and grouping for performance optimization
+- Built PII anonymization service (FastAPI + Presidio + spaCy) for HIPAA-aware LLM workflows
+- Added queue pressure controls and failure isolation (per-backend try/except) for system reliability
+- Designed multi-backend storage routing (pgvector + Solr) by business unit via env config
+- Designed idempotent processing and deduplication for consistency in distributed pipelines
+- Reduced DB round-trips via bulk unnest() inserts (3 round-trips for any batch size)
+- Built JWT-secured APIs with Helios OAuth2 for authenticated multi-tenant content processing
+
+### Nomba — Software Engineer *(Nov 2023 – Feb 2024)*
+`Python · MongoDB · Redis · GCP`
+- Reduced GCP infrastructure costs by 25% via caching and service optimization
+- Built a CSV export pipeline using MongoDB and Redis
+
+### Precious Cornerstone University (NYSC) — Research Assistant *(Mar 2024 – Jan 2025)*
+- Trained faculty on AI tools (ChatGPT, Claude), improving productivity by ~40%
+
+---
+
+## Education
+
+**Obafemi Awolowo University**, Ile-Ife, Nigeria  
+BSc Computer Science with Mathematics — **First Class Honours** *(Aug 2023)*  
+GPA: 4.62 | Scholarships: NNPC–CHEVRON National University Scholarship, Adewale Obadimu Scholarship
+
+---
+
+## Certifications
+
+- HackerRank: Java (2024), REST API (2023), Problem Solving (2023), Python (2022)
+
+---
+
+## Core Stack
+
+| Area | Technologies |
+|------|-------------|
+| Languages | Python (5+ yrs), JavaScript/Node.js, Java |
+| Backend | FastAPI, REST APIs, Pydantic, Express.js, Microservices |
+| Data | PostgreSQL (pgvector), Redis, MongoDB, Solr |
+| AI/LLM | RAG, LLM routing, embeddings (OpenAI/Azure/Anthropic/Vertex/Cohere), FAISS, Presidio |
+| Infra | RabbitMQ, Docker, GCP, GitLab CI/CD, JWT/OAuth2 |
+| Observability | Prometheus, Grafana, Kibana |
+
+---
+
+## Application Log
+
+| Date | Company | Role | Platform | Status | Notes |
+|------|---------|------|----------|--------|-------|
+| 2026-05-19 | GIGABIT Technologies | Python Semisenior | JobVite | ✅ Applied | Filled name/email/phone/salary/cover letter. PDF attached as Additional Files. |
+| 2026-05-19 | Software Mind | Python Developer (SSD) | SmartRecruiters | ⚠️ Manual | SmartRecruiters spl-resume-upload blocks automation. Apply manually at: jobs.smartrecruiters.com/softwaremind/744000125361044 |
+| 2026-05-15 | Leatherback | Software Engineer (Backend) | PeopleHum | ⚠️ Verify | Multiple automated attempts. Check kareemadesola1999@gmail.com for confirmation. |
+| 2026-05-19 | Crossing Hurdles | Backend Engineer | LinkedIn | ⚠️ Manual | At 100% Review stage — scroll down and click Submit. |
+| 2026-05-19 | Servant | Backend Engineer | LinkedIn | ⚠️ Manual | Needs Yes/No screening questions answered. |
+| 2026-05-19 | Talent Sam | Backend Developer | Recruitee | ⛔ Skipped | South Africa-specific (province/ZAR salary/load-shedding questions). |
+
+---
+
+## Resume Files
+
+All tailored resumes are generated by `generate_resume.py` in this folder.
+
+| Date | File | Tailored For |
+|------|------|-------------|
+| 2026-05-20 | resumes/Adesola_Kareem_Resume_Base.pdf | Base version (no tailoring) |
+
+---
+
+## Notes
+
+- Resume format: **PDF only** (not DOCX)
+- Resume generator: `python3 generate_resume.py --company "Acme" --role "Backend Engineer" --focus "python fastapi distributed"`
+- Salary expectation: $3,500 USD/month
+- Open to: remote roles globally; Lagos-based or willing to relocate
