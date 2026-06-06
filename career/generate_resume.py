@@ -105,6 +105,17 @@ PROJECTS = [
         ],
         "tags": ["ai", "llm", "rag", "ml", "python"],
     },
+    {
+        "name": "Physiotherapy Recommendation System",
+        "link": "github.com/kareemadesola/bsc_csc_project",
+        "date": "2023 (BSc Final Year Project)",
+        "stack": "Python · scikit-learn · Flask · Docker · Pandas · Render",
+        "bullets": [
+            ("Random Forest classifier trained on MIMIC-IV arthritis case notes — 4 exercise classes, 5,045-sample test set, 100% accuracy and AUC-ROC", ["ml", "ai", "python"]),
+            ("Flask + Jinja2 web UI with /metrics endpoint exposing confusion matrix and feature importance; Dockerised and deployed to Render", ["backend", "api", "python"]),
+        ],
+        "tags": ["ml", "ai", "python", "backend", "api"],
+    },
 ]
 
 EDUCATION = {
