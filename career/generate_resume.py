@@ -17,6 +17,7 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.platypus import SimpleDocTemplate, Paragraph, HRFlowable, Table, TableStyle
 from reportlab.lib.enums import TA_CENTER, TA_RIGHT
+from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib import colors
 
 
@@ -25,23 +26,29 @@ from reportlab.lib import colors
 # ─────────────────────────────────────────────
 
 CONTACT = {
-    "name":  "ADESOLA KAREEM",
-    "line1": "Lagos, Nigeria  |  +2349070708811  |  kareemadesola1999@gmail.com",
-    "line2": "linkedin.com/in/adesola-kareem-686541181  |  github.com/kareemadesola",
+    "name":  "Adesola Kareem",
+    "line1": "Open to Remote (UTC+1)  |  kareemadesola1999@gmail.com",
+    "line2": "linkedin.com/in/adesolakareem-686541181  |  github.com/kareemadesola",
 }
 
 SKILLS = [
-    ("Languages",       "Python (5+ yrs), JavaScript/Node.js, Java"),
-    ("Backend + Infra", "FastAPI, REST APIs, Pydantic, RabbitMQ, Docker, Kubernetes, GCP, GitLab CI/CD, JWT, OAuth2"),
-    ("Data",            "PostgreSQL (pgvector), Redis, MongoDB, Solr, SQL"),
-    ("AI/ML + Ops",     "LLM routing, Embeddings (OpenAI, Azure, Anthropic, Vertex, Cohere), RAG, FAISS, Presidio, Grafana, Prometheus"),
+    ("Languages",              "Python, TypeScript, JavaScript (Node.js), Java"),
+    ("Backend & APIs",         "FastAPI, SQLAlchemy, Pydantic, Celery, REST APIs, Microservices"),
+    ("Databases & Storage",    "PostgreSQL (pgvector), Redis, MongoDB, Solr"),
+    ("Messaging & Async",      "RabbitMQ, Celery"),
+    ("Infrastructure & DevOps","Docker, Kubernetes, GCP, GitLab CI/CD"),
+    ("AI & Data",              "LLMs, Embeddings, Vector Search, FAISS, pgvector, Presidio"),
+    ("Core Concepts",          "Algorithms & Data Structures, System Design, Agile Ceremonies, RFCs, ADRs, PR Reviews"),
 ]
 
 _SKILL_FOCUS = {
-    "Languages":       ["python"],
-    "Backend + Infra": ["fastapi", "api", "backend", "distributed", "rabbitmq", "devops", "cloud", "auth", "security", "reliability", "architecture"],
-    "Data":            ["postgresql", "database", "optimization", "performance"],
-    "AI/ML + Ops":     ["llm", "ai", "embeddings", "ml", "hipaa", "monitoring", "observability"],
+    "Languages":               ["python"],
+    "Backend & APIs":          ["fastapi", "api", "backend", "distributed", "rabbitmq", "devops", "cloud", "auth", "security", "reliability", "architecture"],
+    "Databases & Storage":     ["postgresql", "database", "optimization", "performance"],
+    "Messaging & Async":       ["rabbitmq", "distributed", "backend"],
+    "Infrastructure & DevOps": ["devops", "cloud", "kubernetes", "docker"],
+    "AI & Data":               ["llm", "ai", "embeddings", "ml", "hipaa", "monitoring", "observability"],
+    "Core Concepts":           ["architecture", "backend", "reliability"],
 }
 
 # Bullets: (text ≤180 chars, [tags]) — action verb, quantified
@@ -50,9 +57,9 @@ WEBMD_BULLETS = [
      ["performance", "distributed", "postgresql", "optimization", "reliability"]),
     ("Reduced database round-trips to 3 for any batch size via bulk unnest() inserts (delete + doc + chunk/embedding in one transaction)",
      ["database", "performance", "postgresql", "optimization"]),
-    ("Eliminated pod restarts under load by integrating tenacity retry logic (3 attempts, exponential backoff 1s–8s) for transient 502/503/504 errors",
+    ("Reduced pod restarts under load by integrating tenacity retry logic (3 attempts, exponential backoff 1s–8s) for transient 502/503/504 errors",
      ["reliability", "distributed", "backend", "performance"]),
-    ("Built pgvector storage backend from scratch: asyncpg, HNSW index, schema-per-business-unit multi-tenant routing, and GIN full-text index",
+    ("Designed and implemented pgvector retrieval backend: asyncpg, HNSW index, schema-per-business-unit multi-tenant routing, and GIN full-text index",
      ["database", "postgresql", "architecture", "backend"]),
     ("Designed RabbitMQ batch pipeline: in-memory buffer with configurable flush on BATCH_SIZE or interval; idempotent dedup across 6 composite fields",
      ["distributed", "backend", "architecture", "rabbitmq", "performance"]),
@@ -78,7 +85,9 @@ NOMBA_BULLETS = [
 ]
 
 PCU_BULLETS = [
-    ("Trained 20+ faculty on AI tools (ChatGPT, Claude), improving team productivity by ~40%",
+    ("Designed and implemented AI automation workflows, improving faculty productivity by ~40%",
+     ["ai", "llm"]),
+    ("Supported applied AI research initiatives and tooling development",
      ["ai", "llm"]),
 ]
 
@@ -89,8 +98,18 @@ PROJECTS = [
         "date": "May 2026 – Present",
         "stack": "FastAPI · RabbitMQ · Redis · PostgreSQL · Docker · Prometheus · Grafana",
         "bullets": [
-            ("Built production-grade multi-channel system (email, SMS, push, WebSocket) with dead-letter queues, Redis rate limiting, and ~17K notifications/sec throughput",
-             ["backend", "distributed", "rabbitmq", "redis", "performance", "architecture"]),
+            ("Built distributed notification system using FastAPI, RabbitMQ, Redis, PostgreSQL",
+             ["backend", "distributed", "rabbitmq", "redis", "architecture"]),
+            ("Designed multi-channel delivery: email, SMS, push, and WebSocket",
+             ["backend", "distributed", "architecture"]),
+            ("Implemented retry logic, exponential backoff, and dead-letter queues",
+             ["reliability", "distributed", "rabbitmq"]),
+            ("Architected for high throughput (~17K notifications/sec)",
+             ["performance", "distributed", "backend"]),
+            ("Added observability via Prometheus and Grafana; enforced rate limiting",
+             ["observability", "monitoring", "backend"]),
+            ("Built TypeScript client SDK — typed request/response interfaces and npm package structure",
+             ["backend", "api"]),
         ],
         "tags": ["backend", "distributed", "rabbitmq", "redis", "performance", "architecture"],
     },
@@ -111,7 +130,7 @@ PROJECTS = [
         "date": "2023",
         "stack": "Python · scikit-learn · Flask · Docker",
         "bullets": [
-            ("Random Forest classifier on 25K+ arthritis case notes — 4 exercise classes, 100% test accuracy, deployed on Render",
+            ("Random Forest classifier on 25K+ arthritis case notes — 4 exercise classes, 100% holdout accuracy (5,045-sample test set), deployed on Render",
              ["ml", "ai", "python", "backend"]),
         ],
         "tags": ["ml", "ai", "python", "backend"],
@@ -119,12 +138,17 @@ PROJECTS = [
 ]
 
 EDUCATION = {
-    "school": "Obafemi Awolowo University, Ile-Ife, Nigeria",
-    "degree": "BSc Computer Science with Mathematics — First Class Honours (GPA: 4.62/5.0)",
-    "date":   "Aug 2023",
+    "school": "Obafemi Awolowo University",
+    "degree": "BSc Computer Science with Mathematics — First Class (GPA: 4.62)",
+    "date":   "2023",
 }
 
-CERTIFICATIONS = "HackerRank: Java (2024), REST API (2023), Problem Solving (2023), Python (2022)"
+CERTIFICATIONS_ANTHROPIC = (
+    "Anthropic: Building with the Claude API, Intro to Model Context Protocol, "
+    "MCP Advanced Topics, Claude Code 101, Claude Code in Action, "
+    "AI Fluency: Framework & Foundations"
+)
+CERTIFICATIONS_HACKERRANK = "HackerRank: Java, REST API, Problem Solving, Python"
 
 
 # ─────────────────────────────────────────────
@@ -134,39 +158,14 @@ CERTIFICATIONS = "HackerRank: Java (2024), REST API (2023), Problem Solving (202
 def build_summary(role: str, focus: list[str]) -> str:
     f = set(focus)
 
-    if f & {"llm", "ai", "ml", "embeddings"}:
-        spec = "LLM-powered platforms, AI pipelines, and vector search systems"
-    elif f & {"distributed", "rabbitmq"}:
-        spec = "event-driven distributed systems and high-throughput data pipelines"
-    elif f & {"performance", "optimization"}:
-        spec = "high-throughput backend systems and performance engineering"
-    elif f & {"postgresql", "database"}:
-        spec = "scalable data backends (pgvector, PostgreSQL) and distributed pipelines"
-    elif f & {"security", "hipaa"}:
-        spec = "HIPAA-compliant services, secure API design, and backend infrastructure"
-    elif f & {"devops", "cloud"}:
-        spec = "backend services and cloud infrastructure (GCP, Docker, Kubernetes)"
-    else:
-        spec = "distributed pipelines, high-throughput data systems, and REST API design"
-
-    s1 = f"Backend Software Engineer with 2+ years of production Python experience specializing in {spec}."
-
-    proofs = []
-    if f & {"performance", "distributed", "reliability", "rabbitmq"}:
-        proofs.append("resolved 6 concurrent bottlenecks under a 2M-document load test")
-    if f & {"llm", "ai", "embeddings"}:
-        proofs.append("built multi-provider LLM and embedding routing across 5 AI providers")
-    if f & {"postgresql", "database"}:
-        proofs.append("built pgvector storage with HNSW indexing serving 2M+ documents")
-    if f & {"security", "hipaa"}:
-        proofs.append("deployed a HIPAA-compliant PII anonymization service on Kubernetes")
-    if f & {"devops", "cloud"}:
-        proofs.append("drove deployments across 5 environments including Production and HIPAA")
-    if not proofs:
-        proofs = ["owned the full Athena AI ingestion pipeline from design through production and HIPAA deployments"]
-
-    s2 = "At WebMD, " + "; ".join(proofs[:2]) + "."
-    return f"{s1} {s2}"
+    return (
+        "Backend Software Engineer with 3 years of Python engineering experience specializing in "
+        "AI infrastructure and distributed systems. At WebMD, took ownership of three production "
+        "microservices on the Athena AI platform — a content ingestion gateway, a RabbitMQ-driven "
+        "vector embedding worker, and a HIPAA-compliant PII anonymization service — while "
+        "contributing to an OpenAI-compatible LLM routing API, deployed across 5 environments "
+        "including HIPAA."
+    )
 
 
 def reorder_skills(focus: list[str]) -> list[tuple[str, str]]:
@@ -205,60 +204,77 @@ def select_projects(focus, max_projects=2):
 # STYLES
 # ─────────────────────────────────────────────
 
-# Usable content width: letter (8.5in) minus 0.5in margins each side = 7.5in = 540pt
-_CONTENT_W = 7.5 * inch
+# ── Colours ───────────────────────────────────
+_BLUE = colors.HexColor("#1F4E79")
+_DARK = colors.HexColor("#1A1A1A")
+_GRAY = colors.HexColor("#555555")
+
+_LEFT_MARGIN  = 0.55 * inch
+_RIGHT_MARGIN = 0.55 * inch
+# Inner frame width: letter minus margins minus 6pt frame padding on each side
+_CONTENT_W = 8.5 * inch - _LEFT_MARGIN - _RIGHT_MARGIN - 12
 
 
 def build_styles():
     return {
         "name": ParagraphStyle(
-            "Name", fontSize=17, fontName="Helvetica-Bold",
-            alignment=TA_CENTER, leading=22, spaceAfter=3,
+            "Name", fontSize=22, fontName="Helvetica-Bold",
+            alignment=TA_CENTER, leading=27, spaceAfter=2,
+            textColor=_BLUE,
         ),
         "contact": ParagraphStyle(
             "Contact", fontSize=8, fontName="Helvetica",
-            alignment=TA_CENTER, leading=11, spaceAfter=2,
+            alignment=TA_CENTER, leading=11, spaceAfter=1,
+            textColor=_GRAY,
         ),
         "section": ParagraphStyle(
             "Section", fontSize=10, fontName="Helvetica-Bold",
-            spaceBefore=5, spaceAfter=1,
+            spaceBefore=5, spaceAfter=0,
+            textColor=_BLUE,
         ),
         "body": ParagraphStyle(
-            "Body", fontSize=8.8, fontName="Helvetica",
-            spaceAfter=2, leading=11.5,
+            "Body", fontSize=8.5, fontName="Helvetica",
+            spaceAfter=1, leading=11,
+            textColor=_DARK,
         ),
         "bullet": ParagraphStyle(
-            "Bullet", fontSize=8.8, fontName="Helvetica",
-            spaceAfter=1.2, leftIndent=10, leading=11.5,
+            "Bullet", fontSize=8.5, fontName="Helvetica",
+            spaceAfter=0.8, leftIndent=12, leading=11,
+            textColor=_DARK,
         ),
-        # Left cell of job header row (bold title)
         "job_title": ParagraphStyle(
             "JobTitle", fontSize=9.5, fontName="Helvetica-Bold",
             spaceAfter=0, spaceBefore=0, leading=12,
+            textColor=_DARK,
         ),
-        # Right cell of job header row (date)
         "job_date": ParagraphStyle(
             "JobDate", fontSize=8.5, fontName="Helvetica",
             alignment=TA_RIGHT, spaceAfter=0, spaceBefore=0, leading=12,
+            textColor=_GRAY,
+        ),
+        "job_company": ParagraphStyle(
+            "JobCompany", fontSize=8.5, fontName="Helvetica-Oblique",
+            spaceAfter=1, leading=10,
+            textColor=_GRAY,
         ),
         "job_meta": ParagraphStyle(
-            "JobMeta", fontSize=8, fontName="Helvetica-Oblique",
-            spaceAfter=2, leading=10,
+            "JobMeta", fontSize=7.5, fontName="Helvetica-Oblique",
+            spaceAfter=1, leading=9,
+            textColor=_GRAY,
         ),
     }
 
 
 def section_rule():
-    """Thick rule that follows a section header — matches Google Docs style."""
-    return HRFlowable(width="100%", thickness=0.75, color=colors.black, spaceAfter=3, spaceBefore=0)
+    return HRFlowable(width="100%", thickness=0.75, color=_BLUE, spaceAfter=2, spaceBefore=0)
 
 
 def job_row(title: str, date: str, s: dict) -> Table:
-    """Company/title on the left, date right-aligned — same line."""
+    """Job title left (bold dark), date right-aligned (gray) — same line."""
     t = Table(
         [[Paragraph(title, s["job_title"]), Paragraph(date, s["job_date"])]],
-        colWidths=[_CONTENT_W - 1.55 * inch, 1.55 * inch],
-        spaceBefore=4,
+        colWidths=[_CONTENT_W - 1.4 * inch, 1.4 * inch],
+        spaceBefore=5,
     )
     t.setStyle(TableStyle([
         ("VALIGN",        (0, 0), (-1, -1), "BOTTOM"),
@@ -290,8 +306,8 @@ def generate_resume(company="", role="", focus_keywords=None, output_path=None):
 
     doc = SimpleDocTemplate(
         output_path, pagesize=letter,
-        leftMargin=0.5 * inch, rightMargin=0.5 * inch,
-        topMargin=0.45 * inch, bottomMargin=0.45 * inch,
+        leftMargin=_LEFT_MARGIN, rightMargin=_RIGHT_MARGIN,
+        topMargin=0.4 * inch, bottomMargin=0.4 * inch,
     )
     s = build_styles()
     story = []
@@ -300,58 +316,59 @@ def generate_resume(company="", role="", focus_keywords=None, output_path=None):
     story.append(Paragraph(CONTACT["name"], s["name"]))
     story.append(Paragraph(CONTACT["line1"], s["contact"]))
     story.append(Paragraph(CONTACT["line2"], s["contact"]))
-    story.append(HRFlowable(width="100%", thickness=1.0, color=colors.black, spaceAfter=4, spaceBefore=2))
 
     # ── Summary ─────────────────────────────────────────────────────────
-    story.append(Paragraph("PROFESSIONAL SUMMARY", s["section"]))
+    story.append(Paragraph("SUMMARY", s["section"]))
     story.append(section_rule())
     story.append(Paragraph(build_summary(role, focus), s["body"]))
 
     # ── Skills ──────────────────────────────────────────────────────────
-    story.append(Paragraph("SKILLS", s["section"]))
+    story.append(Paragraph("TECHNICAL SKILLS", s["section"]))
     story.append(section_rule())
     for label, value in reorder_skills(focus):
         story.append(Paragraph(f"<b>{label}:</b> {value}", s["body"]))
 
     # ── Work Experience ──────────────────────────────────────────────────
-    story.append(Paragraph("WORK EXPERIENCE", s["section"]))
+    story.append(Paragraph("EXPERIENCE", s["section"]))
     story.append(section_rule())
 
-    story.append(job_row("WebMD — Software Engineer (Backend)", "Mar 2025 – Present", s))
-    story.append(Paragraph(
-        "Python · FastAPI · RabbitMQ · pgvector · PostgreSQL · Redis · Docker · GCP",
-        s["job_meta"],
-    ))
-    for b in select_bullets(WEBMD_BULLETS, focus, min_count=4, max_count=5):
+    story.append(job_row("Backend Software Engineer", "Mar 2025 – Present", s))
+    story.append(Paragraph("WebMD (Internet Brands)", s["job_company"]))
+    for b in select_bullets(WEBMD_BULLETS, focus, min_count=6, max_count=7):
         story.append(Paragraph(f"• {b}", s["bullet"]))
 
-    story.append(job_row("Nomba — Software Engineer", "Nov 2023 – Feb 2024", s))
-    story.append(Paragraph("Python · MongoDB · Redis · GCP", s["job_meta"]))
-    for b in select_bullets(NOMBA_BULLETS, focus, min_count=1, max_count=2):
+    story.append(job_row("Software Engineer", "Nov 2023 – Feb 2024", s))
+    story.append(Paragraph("Nomba (Fintech)", s["job_company"]))
+    for b in select_bullets(NOMBA_BULLETS, focus, min_count=2, max_count=2):
         story.append(Paragraph(f"• {b}", s["bullet"]))
 
-    story.append(job_row("Precious Cornerstone University (NYSC) — Research Assistant", "Mar 2024 – Jan 2025", s))
-    story.append(Paragraph(f"• {PCU_BULLETS[0][0]}", s["bullet"]))
+    story.append(job_row("Research Assistant", "Mar 2024 – Jan 2025", s))
+    story.append(Paragraph("Precious Cornerstone University", s["job_company"]))
+    for b in PCU_BULLETS:
+        story.append(Paragraph(f"• {b[0]}", s["bullet"]))
 
     # ── Projects ─────────────────────────────────────────────────────────
     story.append(Paragraph("PROJECTS", s["section"]))
     story.append(section_rule())
-    for p in select_projects(focus, max_projects=2):
-        story.append(job_row(p["name"], p["date"], s))
-        story.append(Paragraph(f"{p['stack']}  |  {p['link']}", s["job_meta"]))
-        for b in select_bullets(p["bullets"], focus, min_count=1, max_count=1):
-            story.append(Paragraph(f"• {b}", s["bullet"]))
+    for p in select_projects(focus, max_projects=1):
+        story.append(Paragraph(
+            f'<b>{p["name"]}</b>  <font color="#555555" size="8">— {p["link"]}</font>',
+            s["job_title"],
+        ))
+        for b in p["bullets"]:
+            story.append(Paragraph(f"• {b[0]}", s["bullet"]))
 
     # ── Education ────────────────────────────────────────────────────────
     story.append(Paragraph("EDUCATION", s["section"]))
     story.append(section_rule())
-    story.append(job_row(EDUCATION["school"], EDUCATION["date"], s))
-    story.append(Paragraph(EDUCATION["degree"], s["body"]))
+    story.append(job_row(EDUCATION["degree"], EDUCATION["date"], s))
+    story.append(Paragraph(EDUCATION["school"], s["job_company"]))
 
     # ── Certifications ───────────────────────────────────────────────────
     story.append(Paragraph("CERTIFICATIONS", s["section"]))
     story.append(section_rule())
-    story.append(Paragraph(CERTIFICATIONS, s["body"]))
+    story.append(Paragraph(CERTIFICATIONS_ANTHROPIC, s["body"]))
+    story.append(Paragraph(CERTIFICATIONS_HACKERRANK, s["body"]))
 
     doc.build(story)
     print(f"Resume generated: {output_path}")

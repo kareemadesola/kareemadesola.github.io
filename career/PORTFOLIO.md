@@ -45,6 +45,17 @@ Active study of distributed systems design patterns (Udemy course), documented a
 - Reduced DB round-trips via bulk unnest() inserts (3 round-trips for any batch size)
 - Built JWT-secured APIs with Helios OAuth2 for authenticated multi-tenant content processing
 
+**Repositories** *(private — gitlab.webmd.com/WebMD/helios/athena)*
+
+| Repo | Description |
+|------|-------------|
+| `athena-ingestion-service` | Core ingestion pipeline — partitions, chunks, vectorises and stores semantic content; FastAPI + RabbitMQ + pgvector + Solr |
+| `athena-vector-processor` | RabbitMQ consumer worker — dequeues ingestion jobs, calls embedding providers, writes to pgvector/Solr with idempotent dedup |
+| `athena-api` | Public-facing REST API for the Athena AI platform — JWT/OAuth2 auth, multi-tenant routing, HIPAA-compliant endpoints |
+| `athena-vector-files-service` | File-based vector operations service — handles document uploads and chunk storage for the retrieval pipeline |
+| `presidio-fastapi-scrubber` | HIPAA-compliant PII anonymisation microservice (FastAPI + Presidio + spaCy); scrubs PHI from content before LLM processing |
+| `presidio-guardrails-anonymizer` | LLM guardrails anonymiser — strips PII from prompts and completions at inference time; includes memory profiling and CVE patches |
+
 ### Nomba — Software Engineer *(Nov 2023 – Feb 2024)*
 `Python · MongoDB · Redis · GCP`
 - Reduced GCP infrastructure costs by 25% via caching and service optimization
